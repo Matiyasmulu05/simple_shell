@@ -72,7 +72,7 @@ int find_builtin(info_t *info)
 		if (_strcmp(info->argv[0], builtintbl[a].type) == 0)
 		{
 			info->line_count++;
-			built_in_ret = builtintbl[i].func(info);
+			built_in_ret = builtintbl[a].func(info);
 			break;
 		}
 	return (built_in_ret);
@@ -141,21 +141,4 @@ void fork_cmd(info_t *info)
 	{
 		if (execve(info->path, info->argv, get_environ(info)) == -1)
 		{
-			free_info(info, 1);
-			if (errno == EACCES)
-				exit(126);
-			exit(1);
-		}
 
-	}
-	else
-	{
-		wait(&(info->status));
-		if (WIFEXITED(info->status))
-		{
-			info->status = WEXITSTATUS(info->status);
-			if (info->status == 126)
-				print_error(info, "Permission denied\n");
-		}
-	}
-}
