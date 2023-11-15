@@ -72,7 +72,7 @@ int print_d(int input, int fd)
 	{
 		if (_abs_ / z)
 		{
-			__putchar('0' + current / i);
+			__putchar('0' + current / z);
 			count++;
 		}
 		current %= z;
@@ -105,7 +105,7 @@ char *convert_number(long int num, int base, int flags)
 		sign = '-';
 
 	}
-	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	arry = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
 

@@ -37,7 +37,7 @@ int _mycd(info_t *info)
 	char *m, *dir, buffer[1024];
 	int chdir_ret;
 
-	s = getcwd(buffer, 1024);
+	m = getcwd(buffer, 1024);
 	if (!m)
 		_puts("TODO: >>getcwd failure emsg here<<\n");
 	if (!info->argv[1])
