@@ -57,30 +57,6 @@ int print_d(int input, int fd)
         int z, count = 0;
         unsigned int _abs_, current;
 
-<<<<<<< HEAD
-	if (fd == STDERR_FILENO)
-		__putchar = _eputchar;
-	if (input < 0)
-	{
-		_abs_ = -input;
-		__putchar('-');
-		count++;
-	}
-	else
-		_abs_ = input;
-	current = _abs_;
-	for (z = 1000000000; z > 1; z /= 10)
-	{
-		if (_abs_ / z)
-		{
-			__putchar('0' + current / z);
-			count++;
-		}
-		current %= z;
-	}
-	__putchar('0' + current);
-	count++;
-=======
         if (fd == STDERR_FILENO)
                 __putchar = _eputchar;
         if (input < 0)
@@ -103,7 +79,6 @@ int print_d(int input, int fd)
         }
         __putchar('0' + current);
         count++;
->>>>>>> main
 
         return (count);
 }
@@ -129,17 +104,10 @@ char *convert_number(long int num, int base, int flags)
                 n = -num;
                 sign = '-';
 
-<<<<<<< HEAD
-	}
-	arry = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-	ptr = &buffer[49];
-	*ptr = '\0';
-=======
         }
         arry = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
         ptr = &buffer[49];
         *ptr = '\0';
->>>>>>> main
 
         do      {
                 *--ptr = arry[n % base];

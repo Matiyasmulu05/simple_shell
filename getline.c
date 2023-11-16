@@ -99,16 +99,6 @@ ssize_t get_input(info_t *info)
  */
 ssize_t read_buf(info_t *info, char *buf, size_t *i)
 {
-<<<<<<< HEAD
-	ssize_t s = 0;
-
-	if (*i)
-		return (0);
-	s = read(info->readfd, buf, READ_BUF_SIZE);
-	if (s >= 0)
-		*i = s;
-	return (s);
-=======
         ssize_t s = 0;
 
         if (*i)
@@ -117,7 +107,6 @@ ssize_t read_buf(info_t *info, char *buf, size_t *i)
         if (s >= 0)
                 *i = s;
         return (s);
->>>>>>> main
 }
 
 /**

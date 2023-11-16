@@ -45,19 +45,11 @@ int set_alias(info_t *info, char *str)
 {
         char *k;
 
-<<<<<<< HEAD
-	k = _strchr(str, '=');
-	if (!k)
-		return (1);
-	if (!*++k)
-		return (unset_alias(info, str));
-=======
         k = _strchr(str, '=');
         if (!k)
                 return (1);
         if (!*++k)
                 return (unset_alias(info, str));
->>>>>>> main
 
         unset_alias(info, str);
         return (add_node_end(&(info->alias), str, 0) == NULL);

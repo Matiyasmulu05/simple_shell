@@ -31,22 +31,6 @@ int _unsetenv(info_t *info, char *var)
         if (!node || !var)
                 return (0);
 
-<<<<<<< HEAD
-	while (node)
-	{
-		k = starts_with(node->str, var);
-		if (k && *k == '=')
-		{
-			info->env_changed = delete_node_at_index(&(info->env), w);
-			k = 0;
-			node = info->env;
-			continue;
-		}
-		node = node->next;
-		k++;
-	}
-	return (info->env_changed);
-=======
         while (node)
         {
                 k = starts_with(node->str, var);
@@ -61,7 +45,6 @@ int _unsetenv(info_t *info, char *var)
                 w++;
         }
         return (info->env_changed);
->>>>>>> main
 }
 
 /**
