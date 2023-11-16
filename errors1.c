@@ -7,24 +7,24 @@
  */
 int _erratoi(char *s)
 {
-	int z = 0;
-	unsigned long int result = 0;
+        int z = 0;
+        unsigned long int result = 0;
 
-	if (*s == '+')
-		s++;  /* TODO: why does this make main return 255? */
-	for (z = 0;  s[z] != '\0'; z++)
-	{
-		if (s[z] >= '0' && s[z] <= '9')
-		{
-			result *= 10;
-			result += (s[z] - '0');
-			if (result > INT_MAX)
-				return (-1);
-		}
-		else
-			return (-1);
-	}
-	return (result);
+        if (*s == '+')
+                s++;  /* TODO: why does this make main return 255? */
+        for (z = 0;  s[z] != '\0'; z++)
+        {
+                if (s[z] >= '0' && s[z] <= '9')
+                {
+                        result *= 10;
+                        result += (s[z] - '0');
+                        if (result > INT_MAX)
+                                return (-1);
+                }
+                else
+                        return (-1);
+        }
+        return (result);
 }
 
 /**
@@ -35,13 +35,13 @@ int _erratoi(char *s)
  */
 void print_error(info_t *info, char *estr)
 {
-	_eputs(info->fname);
-	_eputs(": ");
-	print_d(info->line_count, STDERR_FILENO);
-	_eputs(": ");
-	_eputs(info->argv[0]);
-	_eputs(": ");
-	_eputs(estr);
+        _eputs(info->fname);
+        _eputs(": ");
+        print_d(info->line_count, STDERR_FILENO);
+        _eputs(": ");
+        _eputs(info->argv[0]);
+        _eputs(": ");
+        _eputs(estr);
 }
 
 /**
@@ -53,10 +53,11 @@ void print_error(info_t *info, char *estr)
  */
 int print_d(int input, int fd)
 {
-	int (*__putchar)(char) = _putchar;
-	int z, count = 0;
-	unsigned int _abs_, current;
+        int (*__putchar)(char) = _putchar;
+        int z, count = 0;
+        unsigned int _abs_, current;
 
+<<<<<<< HEAD
 	if (fd == STDERR_FILENO)
 		__putchar = _eputchar;
 	if (input < 0)
@@ -79,8 +80,32 @@ int print_d(int input, int fd)
 	}
 	__putchar('0' + current);
 	count++;
+=======
+        if (fd == STDERR_FILENO)
+                __putchar = _eputchar;
+        if (input < 0)
+        {
+                _abs_ = -input;
+                __putchar('-');
+                count++;
+        }
+        else
+                _abs_ = input;
+        current = _abs_;
+        for (z = 1000000000; z > 1; z /= 10)
+        {
+                if (_abs_ / z)
+                {
+                        __putchar('0' + current / z);
+                        count++;
+                }
+                current %= z;
+        }
+        __putchar('0' + current);
+        count++;
+>>>>>>> main
 
-	return (count);
+        return (count);
 }
 
 /**
@@ -93,30 +118,37 @@ int print_d(int input, int fd)
 
 char *convert_number(long int num, int base, int flags)
 {
-	static char *arry;
-	static char buffer[50];
-	char sign = 0;
-	char *ptr;
-	unsigned long n = num;
+        static char *arry;
+        static char buffer[50];
+        char sign = 0;
+        char *ptr;
+        unsigned long n = num;
 
-	if (!(flags & CONVERT_UNSIGNED) && num < 0)
-	{
-		n = -num;
-		sign = '-';
+        if (!(flags & CONVERT_UNSIGNED) && num < 0)
+        {
+                n = -num;
+                sign = '-';
 
+<<<<<<< HEAD
 	}
 	arry = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
+=======
+        }
+        arry = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+        ptr = &buffer[49];
+        *ptr = '\0';
+>>>>>>> main
 
-	do	{
-		*--ptr = arry[n % base];
-		n /= base;
-	} while (n != 0);
+        do      {
+                *--ptr = arry[n % base];
+                n /= base;
+        } while (n != 0);
 
-	if (sign)
-		*--ptr = sign;
-	return (ptr);
+        if (sign)
+                *--ptr = sign;
+        return (ptr);
 }
 
 /**
@@ -127,12 +159,13 @@ char *convert_number(long int num, int base, int flags)
  */
 void remove_comments(char *buf)
 {
-	int z;
+        int z;
 
-	for (z = 0; buf[z] != '\0'; z++)
-		if (buf[z] == '#' && (!z || buf[z - 1] == ' '))
-		{
-			buf[z] = '\0';
-			break;
-		}
+        for (z = 0; buf[z] != '\0'; z++)
+                if (buf[z] == '#' && (!z || buf[z - 1] == ' '))
+                {
+                        buf[z] = '\0';
+                        break;
+                }
 }
+
